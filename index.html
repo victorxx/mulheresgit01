@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Metatag Title (Título da Página) -->
+    <title>Galeria de Imagens - Mulheres Lindas</title>
+
+    <!-- Metatag Description (Descrição) -->
+    <meta name="description" content="Galeria de imagens de mulheres lindas, com fundo preto, ideal para SEO e fácil de adicionar imagens via JavaScript. Veja uma coleção de imagens dinâmicas com fundo escuro e estilo moderno.">
+
+    <!-- Metatag Keywords (Palavras-chave) -->
+    <meta name="keywords" content="mulheres lindas, beleza feminina, fotos de mulheres, galeria de imagens, fundo preto, imagens dinâmicas, JavaScript, SEO, design moderno">
+
+    <!-- Metatag Author (Autor da Página) -->
+    <meta name="author" content="Saib">
+
+    <!-- Open Graph (OG) para melhor compartilhamento em redes sociais -->
+    <meta property="og:title" content="Galeria de Imagens - Mulheres Lindas">
+    <meta property="og:description" content="Confira nossa galeria de imagens dinâmicas com mulheres lindas, fundo preto e estilo moderno, ideal para quem busca inspiração visual.">
+    <!-- Imagens de mulheres para Open Graph -->
+    <meta property="og:image" content="https://i.pinimg.com/originals/12/5b/6a/125b6acb4e450b508b43b93f6b6ed431.jpg">
+
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (Card para Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeria de Imagens - Mulheres Lindas">
+    <meta name="twitter:description" content="Uma galeria de imagens de mulheres lindas, com fundo preto, onde você pode adicionar imagens dinamicamente com JavaScript. Ideal para design e inspiração.">
+    <!-- Imagens de mulheres para Twitter -->
+    <meta name="twitter:image" content="https://i.pinimg.com/originals/12/5b/6a/125b6acb4e450b508b43b93f6b6ed431.jpg">
+
+    <!-- Favicon (Ícone da página) -->
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+
+    <style>
+        /* CSS básico para a página */
+   /* CSS básico para a página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-item {
+    margin: 10px;
+    border: 2px solid #fff;
+    max-width: 300px;
+    position: relative;
+    overflow: hidden; /* Para esconder parte da imagem ao aplicar o zoom */
+    transition: transform 0.3s ease; /* Transição suave no zoom */
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transição suave para o zoom */
+}
+
+.image-item:hover img {
+    transform: scale(1.2); /* Efeito de zoom */
+}
+
+.image-item figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .image-item {
+        max-width: 100%;
+    }
+}
+
+/* Estilo para o texto aleatório */
+.random-text {
+    text-align: center;
+    margin: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Estilo para a propaganda piscante */
+.popup-ad {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0000;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: none;
+    animation: blink 30s infinite; /* Efeito de piscamento mais lento */
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Efeito de piscamento */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Estilo para o botão de fechar da propaganda */
+.popup-ad button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-ad button:hover {
+    background-color: #444;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; padding: 20px 0; font-size: 2rem;">CONFIRA AS NOVIDADES</h1>
+
+    <div class="container" id="gallery">
+        <!-- As imagens serão adicionadas aqui via JavaScript -->
+    </div>
+
+    <!-- Seção para o texto aleatório -->
+    <div class="random-text" id="randomText">
+        <!-- O texto aleatório será gerado aqui -->
+    </div>
+
+    <!-- Propaganda piscante -->
+    <div class="popup-ad" id="popupAd">
+        <button class="close-btn" id="closeAd">X</button>
+       <a href="https://victorxx.github.io/piadagithub01/">VAMOS RIR MELHORES PIADAS</a>
+    </div>
+
+    <script>
+        // Exemplo de URLs de imagens
+        const imagens = [
+            {src:   "https://i.scdn.co/image/ab67616d0000b273aaa9a236fc550af5bffe9286"},
+            {src:   "https://a-static.mlcdn.com.br/800x560/short-doll-sensual-renda-sexy-mini-pijama-transparente-luxo-like4you/like4you/7898963323648/4b68a3515b394228fd041697f46c11c4.jpeg"},
+            {src:   "https://i.pinimg.com/236x/96/b2/da/96b2da6599f821a5198aaac6e3896da3.jpg"},
+            {src:   "https://i1.sndcdn.com/artworks-3TFBmeqqjQ8n2iJ8-7ui9cg-t500x500.jpg"},
+            {src:  'https://conteudo.imguol.com.br/c/entretenimento/72/2022/01/11/elisa-sanches-voce-de-barca-rifa-ilegal-mercedes-benz-c200-mp-car-veiculos-multimarcas-1641930495632_v2_1x1.png', alt: 'SANCHES' },
+            {src:  'https://i0.statig.com.br/bancodeimagens/ae/to/qt/aetoqtex9mluxtdifbdgxeark.jpg' },
+            {src:  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX1rJn2xOYjVNivv5U7869BpqjT-srH_2D_Q&s' },
+            {src:  'https://wordpress.fikante.com/wp-content/uploads/2021/04/Quem-e%CC%81-Elisa-Sanchez__Easy-Resize.com_.jpg'},
+            {src:   "https://i1.sndcdn.com/artworks-c9E3RPIQS5DexU2Z-oD6jzg-t500x500.jpg"}
+        ];
+
+        // Função para gerar a galeria dinamicamente
+        function criarGaleria() {
+            const container = document.getElementById('gallery');
+            
+            imagens.forEach(imagem => {
+                const figure = document.createElement('figure');
+                figure.classList.add('image-item');
+
+                const img = document.createElement('img');
+                img.src = imagem.src;
+                img.alt = imagem.alt;
+
+                const caption = document.createElement('figcaption');
+                caption.textContent = imagem.alt;
+
+                figure.appendChild(img);
+                figure.appendChild(caption);
+                container.appendChild(figure);
+            });
+        }
+
+        // Função para gerar texto aleatório
+        function gerarTextoAleatorio() {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let resultado = '';
+            const tamanho = 10; // Tamanho do texto aleatório
+
+            for (let i = 0; i < tamanho; i++) {
+                const indice = Math.floor(Math.random() * caracteres.length);
+                resultado += caracteres[indice];
+            }
+
+            return resultado;
+        }
+
+        // Função para exibir o texto aleatório
+        function mostrarTextoAleatorio() {
+            const randomTextDiv = document.getElementById('randomText');
+            randomTextDiv.textContent = gerarTextoAleatorio(); // Exibe o texto aleatório gerado
+        }
+
+        // Função para fechar a propaganda
+        function fecharPropaganda() {
+            const popupAd = document.getElementById('popupAd');
+            popupAd.style.display = 'none';
+        }
+
+        // Chama a função para criar a galeria
+        criarGaleria();
+
+        // Chama a função para mostrar o texto aleatório no final da página
+        mostrarTextoAleatorio();
+
+        // Adiciona o evento de fechamento da propaganda
+        document.getElementById('closeAd').addEventListener('click', fecharPropaganda);
+
+        // Exibe a propaganda após 2 segundos
+        setTimeout(() => {
+            document.getElementById('popupAd').style.display = 'block';
+        }, 2000);
+    </script>
+</body>
+</html>
